@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Detection and Classification</title>
+    <style>
+        body {
+            background-image: url('.jpg'); /* Replace 'background_image.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: rgba(208, 81, 18, 0.859);
+        }
+
+        #container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        #videoCanvas {
+            margin-top: 20px;
+        }
+
+        #result {
+            margin-top: 20px;
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+    <div id="container">
+        <h1>Vehicle Detection  Classification and Counting</h1>
+        
+        <!-- Input for uploading video -->
+        <input type="file" id="videoInput" name="video" accept=".mp4, .avi">
+        <button onclick="processVideo()">Process Video</button>
+
+        <!-- Canvas to display video and detection results -->
+        <canvas id="videoCanvas" width="640" height="480"></canvas>
+
+        <!-- Div to display classification and counting results -->
+        <div id="result"></div>
+    
+    </div>
+</form>
+    <!--script>
+        async function processVideo() {
+            const videoInput = document.getElementById('videoInput');
+            const videoFile = videoInput.files[0];
+            
+            if (!videoFile) {
+                alert("Please select a video file.");
+                return;
+            }
+
+            const video = document.createElement('video');
+            video.src = URL.createObjectURL(videoFile);
+            video.controls = true;
+            document.body.appendChild(video);
+
+            const canvas = document.getElementById('videoCanvas');
+            const ctx = canvas.getContext('2d');
+            const resultDiv = document.getElementById('result');
+            
+            // Add logic here to send video to backend for processing
+            // This would involve making an AJAX request to your backend
+            // server where you implement vehicle detection, classification, and counting
+            
+            // Example placeholder:
+            const detectionResult = await detectVehicles(videoFile); // Function to be implemented
+            displayResults(detectionResult);
+
+            function displayResults(result) {
+                // Display classification and counting results in the result div
+                resultDiv.innerHTML = `<h2>Classification and Counting Results</h2>`;
+                // Display whatever results you have obtained from the backend processing
+            }
+        }
+
+        // Function to detect vehicles (placeholder function)
+        async function detectVehicles(videoFile) {
+            // Placeholder function to simulate processing
+            await new Promise(resolve => setTimeout(resolve, 3000)); // Simulating processing delay
+            return { 
+                vehicles: 10, // Number of vehicles detected
+                classification: [{ type: 'Car', count: 8 }, { type: 'Truck', count: 2 }] // Classification results
+            };
+        }
+    </script-->
+    
+</body>
+</html>
